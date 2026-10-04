@@ -82,7 +82,8 @@
       "Sid": "ReadCloudWatch",
       "Effect": "Allow",
       "Action": [
-        "cloudwatch:DescribeAlarms"
+        "cloudwatch:DescribeAlarms",
+        "cloudwatch:ListTagsForResource"
       ],
       "Resource": "*"
     }

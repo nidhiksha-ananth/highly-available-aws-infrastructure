@@ -52,3 +52,8 @@ output "db_instance_endpoint" {
   description = "RDS database endpoints."
   value       = module.rds.db_endpoint
 }
+
+output "target_group_arn" {
+  description = "ARN of the application target group."
+  value       = module.alb.target_group_arn
+}
