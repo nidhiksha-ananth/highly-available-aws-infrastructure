@@ -1,0 +1,3 @@
+aws_region = "ap_south_1"
+project_name = "Highly avaiable aws"
+environment = "prod"
