@@ -563,7 +563,7 @@ Alarm evaluations         2
 
 ### Auto Scaling After Recovery
 
-![ASG After Recovery](./screenshots/ASG%20after%20recoveru.png)
+![ASG After Recovery](./screenshots/ASG-after-recovery.png)
 
 ### Target Group After Recovery
 
@@ -583,7 +583,7 @@ Alarm evaluations         2
 
 ### GitHub Actions
 
-![GitHub Actions](./screenshots/Github%20actions.png)
+![GitHub Actions](./screenshots/GitHub-Actions.png)
 
 ---
 
