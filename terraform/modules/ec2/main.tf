@@ -1,3 +1,7 @@
+data "aws_ssm_parameter" "a12023_ami" {
+  name = " /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
+}
+
 resource "aws_launch_template" "app" {
   name = "${var.project_name}-${var.environment}-app"
 
