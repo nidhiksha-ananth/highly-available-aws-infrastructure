@@ -21,7 +21,8 @@
         "ec2:DescribeInternetGateways",
         "ec2:DescribeSubnets",
         "ec2:DescribeRouteTables",
-        "ec2:DescribeNatGateways"
+        "ec2:DescribeNatGateways",
+        "ec2:DescribeLaunchTemplates"
       ],
       "Resource": "*"
     },
@@ -49,7 +50,9 @@
       "Action": [
         "elasticloadbalancing:DescribeLoadBalancers",
         "elasticloadbalancing:DescribeTargetGroups",
-        "elasticloadbalancing:DescribeTargetGroupAttributes"
+        "elasticloadbalancing:DescribeTargetGroupAttributes",
+        "elasticloadbalancing:DescribeLoadBalancerAttributes",
+        "elasticloadbalancing:DescribeTags"
       ],
       "Resource": "*"
     },
@@ -57,7 +60,8 @@
       "Sid": "ReadRds",
       "Effect": "Allow",
       "Action": [
-        "rds:DescribeDBSubnetGroups"
+        "rds:DescribeDBSubnetGroups",
+        "rds:ListTagsForResource"
       ],
       "Resource": "*"
     }
