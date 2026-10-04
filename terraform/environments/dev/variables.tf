@@ -16,11 +16,6 @@ variable "environment" {
   default     = "dev"
 }
 
-variable "ami_id" {
-  description = "AMI ID used for application EC2 instances."
-  type        = string
-}
-
 variable "instance_type" {
   description = "EC2 instance type used for application instances."
   type        = string
@@ -30,4 +25,9 @@ variable "instance_type" {
 variable "target_cpu_utilization" {
   description = "Target CPU utilization percentage for the autoscaling group."
   type        = number
+}
+
+variable "ami_id" {
+  description = "The ID of the AMI to use for the EC2 instance."
+  type        = string
 }

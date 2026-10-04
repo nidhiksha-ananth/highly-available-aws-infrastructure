@@ -45,14 +45,12 @@ module "iam" {
 module "ec2" {
   source = "../../modules/ec2"
 
-  project_name = var.project_name
-  environment  = var.environment
-
-  ami_id        = var.ami_id
-  instance_type = var.instance_type
-
-  app_security_group_id     = module.security_groups.app_security_group_id
+  project_name              = var.project_name
+  environment               = var.environment
+  ami_id                    = var.ami_id
+  instance_type             = var.instance_type
   iam_instance_profile_name = module.iam.ec2_instance_profile_name
+  app_security_group_id     = module.security_groups.app_security_group_id
 }
 
 module "alb" {
