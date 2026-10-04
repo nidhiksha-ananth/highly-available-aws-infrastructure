@@ -54,7 +54,8 @@
         "elasticloadbalancing:DescribeTargetGroupAttributes",
         "elasticloadbalancing:DescribeLoadBalancerAttributes",
         "elasticloadbalancing:DescribeTags",
-        "elasticloadbalancing:DescribeListeners"
+        "elasticloadbalancing:DescribeListeners",
+        "elasticloadbalancing:DescribeListenerAttributes"
       ],
       "Resource": "*"
     },
@@ -65,6 +66,14 @@
         "rds:DescribeDBSubnetGroups",
         "rds:ListTagsForResource",
         "rds:DescribeDBInstances"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "ReadAutoScaling",
+      "Effect": "Allow",
+      "Action": [
+        "autoscaling:DescribeAutoScalingGroups"
       ],
       "Resource": "*"
     }
