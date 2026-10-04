@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 permissions:
   id-token: write
@@ -21,9 +18,13 @@ jobs:
       run:
         working-directory: terraform/environments/dev
 
+    env:
+      TF_VAR_ami_id: ${{ vars.AMI_ID }}
+      TF_VAR_target_cpu_utilization: "50"
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v40
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
