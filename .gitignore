@@ -13,3 +13,7 @@ crash.*.log
 # OS files
 .DS_Store
 Thumbs.db
+
+# Local GitHub Actions IAM policy documents
+github-actions-*.json
+terraform/environments/dev/github-actions-trust-policy.json
