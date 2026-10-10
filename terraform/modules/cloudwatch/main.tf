@@ -12,6 +12,6 @@ resource "aws_cloudwatch_metric_alarm" "app_cpu_high" {
     AutoScalingGroupName = var.autoscaling_group_name
   }
 
-  alarm_description = "This metric monitors ec2 cpu utilization"
+  alarm_description  = "This metric monitors ec2 cpu utilization"
   treat_missing_data = "notBreaching"
 }

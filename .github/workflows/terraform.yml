@@ -9,6 +9,10 @@ permissions:
   id-token: write
   contents: read
 
+concurrency:
+  group: terraform-dev
+  cancel-in-progress: false
+
 jobs:
   terraform:
     name: Terraform Checks
