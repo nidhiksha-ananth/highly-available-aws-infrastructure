@@ -32,3 +32,9 @@ variable "private_db_subnet_cidrs" {
   description = "List of CIDR blocks for private database subnets"
   type        = list(string)
 }
+
+variable "single_nat_gateway" {
+  description = "Boolean to determine if a single NAT gateway should be used"
+  type        = bool
+  default     = false
+}

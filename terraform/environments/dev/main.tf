@@ -102,3 +102,10 @@ module "cloudwatch" {
 
   autoscaling_group_name = module.autoscaling.autoscaling_group_name
 }
+
+module "audit" {
+  source = "../../modules/audit"
+
+  project_name = var.project_name
+  environment  = var.environment
+}

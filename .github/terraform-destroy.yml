@@ -1,0 +1,57 @@
+name: Terraform Destroy (manual)
+
+# Manual only. Nothing triggers this automatically.
+# Run it from: GitHub -> Actions -> "Terraform Destroy (manual)" -> Run workflow.
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "Type the word destroy to confirm"
+        required: true
+
+permissions:
+  id-token: write
+  contents: read
+
+# Same group as the apply workflow, so a destroy and an apply never run at the same time.
+concurrency:
+  group: terraform-dev
+  cancel-in-progress: false
+
+jobs:
+  destroy:
+    name: Terraform Destroy
+    if: ${{ github.event.inputs.confirm == 'destroy' }}
+    runs-on: ubuntu-latest
+
+    # Uses the dev environment so it needs the same manual approval as apply,
+    # and so the deploy role's trust policy (environment:dev) accepts it.
+    environment:
+      name: dev
+
+    defaults:
+      run:
+        working-directory: terraform/environments/dev
+
+    env:
+      TF_VAR_ami_id: ${{ vars.AMI_ID }}
+      TF_VAR_target_cpu_utilization: "50"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::875521761198:role/highly-available-aws-github-actions-deploy-role
+          aws-region: ap-south-1
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Destroy
+        run: terraform destroy -auto-approve
