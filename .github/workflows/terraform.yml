@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'terraform/**'
+      - '.github/workflows/**'
 
 permissions:
   id-token: write
@@ -47,6 +50,11 @@ jobs:
 
       - name: Terraform Validate
         run: terraform validate
+
+      - name: Security Scan (Checkov)
+        run: |
+          pip install checkov
+          checkov -d ../.. --framework terraform --quiet --soft-fail
 
       - name: Terraform Plan
         run: terraform plan

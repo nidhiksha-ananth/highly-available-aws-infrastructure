@@ -36,6 +36,7 @@ resource "aws_launch_template" "app" {
     systemctl start nginx
 
     echo "<h1>Highly Available AWS Application</h1>" > /usr/share/nginx/html/index.html
+    echo "ok" > /usr/share/nginx/html/health
   EOF
   )
 
